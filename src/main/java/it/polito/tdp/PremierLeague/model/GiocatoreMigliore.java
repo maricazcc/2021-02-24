@@ -24,7 +24,7 @@ public class GiocatoreMigliore {
 	
 	@Override
 	public String toString() {
-		return "GiocatoreMigliore [p=" + p + ", delta=" + delta + "]";
+		return  p + " " + delta;
 	}
 	
 	

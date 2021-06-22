@@ -92,12 +92,23 @@ public class Model {
 				maxDelta = delta;
 			}
 		}
-		
 		return new GiocatoreMigliore (best, maxDelta);
+	}
+	
+	public String getTeamFromPlayer(Player p, Match m) {
+		return this.dao.getTeamFromPlayer(p, m);
 	}
 	
 	public Graph <Player, DefaultWeightedEdge> getGrafo() {
 		return this.grafo;
+	}
+	
+	public String simula(Match m , int N) {
+		Simulatore s = new Simulatore(this);
+		s.init(m, N);
+		s.run();
+		return m.teamHomeNAME + " vs " + m.teamAwayNAME + " : " + s.getGoalHome() + "-" + s.getGoalAway()
+		       + " (Espulsi: " + s.getEspulsioniHome() + "-" + s.getEsplulsioniAway() + ")";
 	}
 	
 }

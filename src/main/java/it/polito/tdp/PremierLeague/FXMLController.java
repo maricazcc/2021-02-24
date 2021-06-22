@@ -75,6 +75,28 @@ public class FXMLController {
     
     @FXML
     void doSimula(ActionEvent event) {
+    	txtResult.clear();
+    	
+    	if(this.model.getGrafo() == null) {
+    		txtResult.appendText("Crea prima il grafo!");
+        	return;
+        }
+    	    	
+    	try {
+    		Match m = cmbMatch.getValue();
+        	int N = Integer.parseInt(txtN.getText());
+        	
+        	String risultato = this.model.simula(m, N);
+        	this.txtResult.appendText(risultato);
+    		
+    	} catch(NumberFormatException n) {
+    		this.txtResult.setText("Inserire un intero");
+    		return;
+    	}
+    		
+    		
+    	
+    	
 
     }
 
